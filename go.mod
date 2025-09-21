@@ -6,11 +6,7 @@ require (
 	github.com/gomarkdown/markdown v0.0.0-20250810172220-2e2c11897d1a
 	github.com/google/go-github/v74 v74.0.0
 	github.com/joho/godotenv v1.5.1
-	github.com/yosssi/gohtml v0.0.0-20201013000340-ee4748c638f4
 	golang.org/x/oauth2 v0.30.0
 )
 
-require (
-	github.com/google/go-querystring v1.1.0 // indirect
-	golang.org/x/net v0.44.0 // indirect
-)
+require github.com/google/go-querystring v1.1.0 // indirect
