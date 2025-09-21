@@ -4,7 +4,7 @@
 Simple static personal website, whose content is automatically pulled in from my Github.
 When a commit is added to main, a github action runs that pulls in README information for a few of my github projects.
 That is then formatted into HTML templates, re-generating the static content of the site.
-That content is then posted as my Github Pages website [matthewberthoud.com](https://matthewberthoud.com)
+That content is then posted as my Github Pages website ([matthewberthoud.com](https://matthewberthoud.com)).
 
 ## Setup and Run
 To generate an HTML template based on the repo names stored in projects.txt, run the following.
