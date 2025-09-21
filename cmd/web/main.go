@@ -28,6 +28,10 @@ func main() {
 		log.Fatalf("Error parsing templates: %v", err)
 	}
 
+	if err := os.MkdirAll(outputDir, 0755); err != nil {
+		log.Fatalf("Error creating directory: %v", err)
+	}
+
 	f, err := os.OpenFile(filepath.Join(outputDir, "index.html"), os.O_RDWR|os.O_CREATE, 0644)
 	if err != nil {
 		log.Fatalf("Error opening html file: %v", err)
