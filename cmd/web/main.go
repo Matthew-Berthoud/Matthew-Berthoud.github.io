@@ -4,6 +4,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/joho/godotenv"
 )
@@ -18,24 +19,18 @@ func main() {
 	fs := http.FileServer(http.Dir("ui/static"))
 	http.Handle("/static/", http.StripPrefix("/static/", fs))
 
-	http.HandleFunc("/", func(w http.ResponseWriter, r *http.Request) {
-		if r.URL.Path != "/" {
-			http.NotFound(w, r)
-			return
-		}
+	tmpl, err := template.ParseFiles("ui/html/pages/index.html", "ui/html/partials/project-template.html", "ui/html/partials/about-me.html")
+	if err != nil {
+		log.Fatalf("Error parsing templates: %v", err)
+	}
 
-		tmpl, err := template.ParseFiles("ui/html/pages/index.html", "ui/html/partials/project-template.html", "ui/html/partials/about-me.html")
-		if err != nil {
-			log.Fatalf("Error parsing templates: %v", err)
-		}
+	f, err := os.OpenFile("static-site/index.html", os.O_RDWR|os.O_CREATE, 0644)
+	if err != nil {
+		log.Fatalf("Error opening html file: %v", err)
+	}
 
-		err = tmpl.ExecuteTemplate(w, "index.html", data)
-		if err != nil {
-			http.Error(w, "Failed to render template.", http.StatusInternalServerError)
-			log.Printf("Error rendering template: %v", err)
-		}
-	})
-
-	log.Println("Server listening on http://localhost:8080...")
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	err = tmpl.Execute(f, data)
+	if err != nil {
+		log.Printf("Error rendering template: %v", err)
+	}
 }
