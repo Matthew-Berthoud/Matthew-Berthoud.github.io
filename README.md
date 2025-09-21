@@ -1,16 +1,14 @@
-# personal-vibesite
+# Matthew-Berthoud.github.io
 
 ## Overview
-Simple personal website and a Go server written with some serioue vibe coding.
-I've procrastinated making a personal website for so long I finally set aside my software engineering skills and pulled out my prompt engineering skills.
+Simple static personal website, whose content is automatically pulled in from my Github.
+When a commit is added to main, a github action runs that pulls in information for a few of my github projects.
+That is then formatted into HTML templates, re-generating the static content of the site.
+That content is then posted as my Github Pages website.
 
 ## Setup
-
-Running the site:
 ```sh
 git clone https://github.com/Matthew-Berthoud/personal-vibesite.git
-go install github.com/air-verse/air@latest
-air
 ```
 
 ### Github Token
