@@ -1,5 +1,5 @@
+.dotfiles
 matthew-berthoud.github.io
 samba
-.dotfiles
 football-3.0
 
