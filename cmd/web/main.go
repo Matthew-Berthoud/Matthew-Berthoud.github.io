@@ -16,7 +16,7 @@ func main() {
 	}
 	data := GatherData()
 
-	templateDir := "templates"
+	templateDir := filepath.Join("ui", "templates")
 	outputDir := "tmp"
 
 	indexPage := filepath.Join(templateDir, "index.html")

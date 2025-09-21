@@ -5,6 +5,7 @@ import (
 	"html/template"
 	"log"
 	"os"
+	"path/filepath"
 	"strings"
 
 	"personal-vibesite/internal/github"
@@ -16,6 +17,8 @@ const PROJECT_NAMES = "projects.txt"
 type PageData struct {
 	Projects []github.Project
 	AboutMe  template.HTML
+	CSS      template.CSS
+	JS       template.JS
 }
 
 func ReadLines(path string) ([]string, error) {
@@ -46,8 +49,24 @@ func GatherData() *PageData {
 		log.Fatalf("Error getting About Me: %v", err)
 	}
 
+	staticDir := filepath.Join("ui", "static")
+	cssFile := filepath.Join(staticDir, "css", "style.css")
+	jsFile := filepath.Join(staticDir, "js", "script.js")
+
+	css, err := os.ReadFile(cssFile)
+	if err != nil {
+		log.Fatalf("No CSS files found: %v", err)
+	}
+
+	js, err := os.ReadFile(jsFile)
+	if err != nil {
+		log.Fatalf("No JS files found: %v", err)
+	}
+
 	return &PageData{
 		Projects: projects,
 		AboutMe:  aboutMe,
+		CSS:      template.CSS(css),
+		JS:       template.JS(js),
 	}
 }
