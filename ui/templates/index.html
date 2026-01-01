@@ -1,59 +1,44 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Matthew Berthoud</title>
-  <style>
-    {{ .CSS }}
-  </style>
-</head>
-
-<body>
-  <header>
-    <nav class="container">
-      <div class="logo">Matthew Berthoud</div>
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="https://www.linkedin.com/in/matthew-berthoud/">Contact</a></li>
-      </ul>
-      <button id="theme-toggle">Toggle Theme</button>
-    </nav>
-  </header>
-
-  <main class="container">
-
-
-    <!-- About Section -->
-    <section id="about">
-      <h2>About Me</h2>
-      {{template "about-me" .}}
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>My Projects</h2>
-      <div class="project-grid">
-        {{range .Projects}}
-        {{template "project-card" .}}
-        {{end}}
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Matthew Berthoud. All rights reserved.</p>
-  </footer>
-
-  <!-- Link to external JavaScript file -->
-  <script>
-    {{ .JS }}
-  </script>
-
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matthew Berthoud</title>
+    <style>
+      {{ .CSS }}
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav class="container">
+        <div class="logo">Matthew Berthoud</div>
+        <ul>
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li>
+            <a href="https://www.linkedin.com/in/matthew-berthoud/">Contact</a>
+          </li>
+        </ul>
+        <button id="theme-toggle">Toggle Theme</button>
+      </nav>
+    </header>
+    <main class="container">
+      <section id="about">
+        <h2>About Me</h2>
+        {{template "about-me" .}}
+      </section>
+      <section id="projects">
+        <h2>My Projects</h2>
+        <div class="project-grid">
+          {{range .Projects}} {{template "project-card" .}} {{end}}
+        </div>
+      </section>
+    </main>
+    <footer>
+      <p>&copy; 2025 Matthew Berthoud. All rights reserved.</p>
+    </footer>
+    <script>
+      {{ .JS }}
+    </script>
+  </body>
 </html>
