@@ -1,4 +1,0 @@
-.dotfiles
-samba
-football-3.0
-
