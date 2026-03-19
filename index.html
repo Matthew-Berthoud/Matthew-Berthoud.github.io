@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Matthew Berthoud</title>
+  </head>
+  <body>
+    <h1>CSS Battle</h1>
+    <main class="css-battle-container">
+      <a
+        data-date="2026-03-19"
+        href="https://cssbattle.dev/play/xoj9q9vbk9SRcg1KWrYx"
+        class="daily-challenge-link"
+        target="_blank"
+      >
+        <iframe
+          src="css-battle/2026-03-19.html"
+          title="CSS Battle 2026-03-19"
+          class="css-battle-frame"
+        ></iframe>
+      </a>
+    </main>
+    <style>
+      body {
+        font-family: sans-serif;
+      }
+      h1 {
+        text-align: center;
+      }
+
+      .css-battle-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 400px);
+        grid-auto-rows: 300px;
+        justify-content: center;
+
+        .daily-challenge-link {
+          border: none;
+          padding: 0;
+          position: relative;
+          text-align: center;
+
+          &::after {
+            place-content: center;
+            position: absolute;
+            inset: 0;
+
+            content: attr(data-date);
+            font-size: 4rem;
+            background: black;
+            color: white;
+            opacity: 0;
+
+            transition: opacity 0.3s ease;
+          }
+
+          &:hover::after {
+            opacity: 0.5;
+          }
+        }
+
+        .css-battle-frame {
+          border: none;
+          width: 400px;
+          height: 300px;
+          pointer-events: none;
+        }
+      }
+    </style>
+  </body>
+</html>

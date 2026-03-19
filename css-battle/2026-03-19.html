@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Battle 2026-03-19</title>
+    <style>
+      html,
+      body {
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div></div>
+      <div class="mid"></div>
+      <div class="right"></div>
+      <div class="l"></div>
+      <div class="r"></div>
+      <div class="d l"></div>
+      <div class="d r"></div>
+      <div class="down left"></div>
+      <div class="down mid"></div>
+      <div class="down right"></div>
+    </main>
+    <style>
+      body {
+        display: grid;
+        place-items: center;
+        background: #a6d6ae;
+      }
+      main {
+        width: 290px;
+        height: 160px;
+        background: #3f4869;
+        display: grid;
+        grid-template: 30px 1fr 30px 1fr 30px/30px 1fr 30px 1fr 30px;
+      }
+      div {
+        background: #a6d6ae;
+      }
+      .mid {
+        grid-column: 3;
+      }
+      .right {
+        grid-column: 5;
+      }
+      .down {
+        grid-row: 5;
+      }
+      .l {
+        grid-column: 2;
+      }
+      .r {
+        grid-column: 4;
+      }
+      .d {
+        grid-row: 4;
+      }
+    </style>
+  </body>
+</html>
